@@ -63,6 +63,23 @@
   .arrow.left { left: 10px; }
   .arrow.right { right: 10px; }
 
+  .slides a img {
+    width: 100%;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  
+  .slides a img:hover {
+    transform: rotate(-3deg) scale(1.05);
+    animation: wiggle 0.5s ease-in-out infinite;
+  }
+  
+  @keyframes wiggle {
+    0%,100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  
   footer {
     margin-top: 40px;
     font-size: 0.9rem;
@@ -73,6 +90,8 @@
 <body>
   <div class="pumpkin">🎃</div>
   <h1>Smithers Solidarity Spirit Week!</h1>
+
+  <div id="funEmoji" style="position:absolute;top:50px;left:50%;font-size:2rem;pointer-events:none;"></div>
 
   <div class="carousel">
     <div class="slides">
@@ -101,6 +120,20 @@
 
   // Auto-advance every 5 seconds
   setInterval(() => moveSlide(1), 5000);
+
+  const emojis = ['👻','🎃','🕸️','🧙','🧛'];
+  setInterval(() => {
+    const emojiDiv = document.getElementById('funEmoji');
+    const randomEmoji = emojis[Math.floor(Math.random()*emojis.length)];
+    const x = Math.random() * 80 + 10; // random horizontal
+    const y = Math.random() * 60 + 10; // random vertical
+    emojiDiv.style.left = x + '%';
+    emojiDiv.style.top = y + '%';
+    emojiDiv.textContent = randomEmoji;
+  }, 1500);
+
+
+  
 </script>
 </body>
 </html>
