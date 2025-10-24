@@ -17,13 +17,15 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: #ff7518;
       text-shadow: 3px 3px 8px black, 0 0 25px #ff7518;
       animation: flicker 2s infinite;
+      margin: 10px 0;
     }
 
     @keyframes flicker {
@@ -38,8 +40,8 @@
     p {
       font-size: 1.3rem;
       color: #fefefe;
-      margin-top: 10px;
       text-shadow: 2px 2px 5px black;
+      margin-bottom: 25px;
     }
 
     .pumpkin {
@@ -56,11 +58,29 @@
       }
     }
 
+    .poster {
+      width: 80%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px #ff7518, 0 0 60px rgba(255, 117, 24, 0.5);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
     footer {
       position: absolute;
-      bottom: 15px;
+      bottom: 10px;
       font-size: 0.9rem;
       color: #aaa;
+      text-shadow: 1px 1px 3px black;
     }
   </style>
 </head>
@@ -68,6 +88,10 @@
   <div class="pumpkin">🎃</div>
   <h1>Smithers Solidarity Spirit Week!</h1>
   <p>Keep on keeping on. Rock your Solidarity Spirit 💪🧡</p>
+
+  <!-- 🔥 Replace "five-days.png" with your actual image filename -->
+  <img src="images/SolSpirit12_Cover.png" alt="Spirit Week Events" class="poster">
+
   <footer>Fair Wages Aren’t Scary 👻 | Oct 27–31, 2025</footer>
 </body>
 </html>
