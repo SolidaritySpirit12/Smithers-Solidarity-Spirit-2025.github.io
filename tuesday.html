@@ -119,6 +119,31 @@
     text-shadow: 2px 2px 5px black, 0 0 10px #ff7518;
     position: relative;
   }
+    /* Remove default list bullets if you use any later */
+  ul { list-style: none; padding-left: 0; }
+
+  /* Shimmer effect for sponsor text */
+  .shimmer {
+    display: inline-block;
+    background: linear-gradient(90deg, #ffb347, #fff2d1, #ffb347);
+    background-size: 200% auto;
+    color: #ffb347;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 179, 71, 0.6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  section {
+    margin-bottom: 2em;
+  }
+  
 </style>
 </head>
 <body>
@@ -140,53 +165,53 @@
     <h2>Event Poster</h2>
     <img src="images/SolSpirit12_Day2.png" alt="Tuesday Poster">
   </section>
-
+  
   <!-- Game Rules / Details Section -->
   <section>
     <h2>Game Rules & Details</h2>
   
     <!-- Example Bingo Card Image -->
-    <img src="images/SolSpirit12_Bingo1.png" alt="Bingo Card Example - Dogs" style="width: 70%; max-width: 300px; border-radius: 10px; box-shadow: 0 0 10px #ff7518; display: block; margin: 15px auto;">
+    <img src="images/SolSpirit12_Bingo1.png" 
+         alt="Bingo Card Example - Dogs" 
+         style="width: 70%; max-width: 300px; border-radius: 10px; box-shadow: 0 0 10px #ff7518; display: block; margin: 15px auto;">
   
     <p>
-      Have some fun while on the picket line with our Bingo-style games! Spot, photograph, and mark off items on your card for a chance to win.<br><br>
+      Have some fun while on the picket line with our <strong>BINGO-style games</strong> and photo challenges!  
+      Spot, photograph, and mark off items on your card for a chance to win sweet prizes from Valkerie Confections 🍬<br><br>
   
-      How it works:<br>
-      
-      Each participant chooses a theme card:<br>
-        Dogs of the Line – Spot or pet different dogs on the line.<br>
-        Honk! – Listen for honks from different vehicles.<br>
-        Hidden Items – Find little objects or signs along the line.<br>
-        Food & Beverage – Spot or photograph food and drink items.<br><br>
-      
-      Each card is a 5x5 Bingo grid with a FREE SPACE in the center.<br>
-      
+      <strong>How it works:</strong><br>
+      Each participant chooses a themed card:<br>
+      🐶 <em>Dogs of the Line</em> – Spot or pet different dogs on the line.<br>
+      🚗 <em>Honk!</em> – Listen for honks from different vehicles.<br>
+      🔍 <em>Hidden Items</em> – Find little objects or signs along the line.<br>
+      ☕ <em>Food & Beverage</em> – Spot or photograph food and drink items.<br><br>
+  
+      Each card is a <strong>5x5 Bingo grid</strong> with a FREE SPACE in the center.<br><br>
+  
       As you spot or photograph items, mark them off on your card.<br>
-      
-      Once your card is completed, submit it for the random draw.<br><br>
-      
-      Prizes:<br>
-      
-      Everyone who completes a card gets their name in the hat for a fair chance at winning.<br>
-      
-      Winners will be drawn and announced after all submissions are in.<br>
+      Once your card is complete, submit it for the random draw — everyone has a fair shot!<br><br>
+  
+      <strong>Prizes:</strong><br>
+      Every completed card gets your name entered into the draw.<br>
+      Winners will be announced after all submissions are in, so get out there and play! 🎃
     </p>
   </section>
-
-
+  
   <!-- Sponsor Section -->
   <section>
     <h2>Sponsored By</h2>
-    <p>
-      A huge thank you to <strong>Paul's Bakery</strong> for supporting our Solidarity Spirit Week and providing prizes!
+    <p class="shimmer">
+      A huge thank you to <strong>Valkerie Confections</strong>  
+      for bringing some sparkle and sweetness to our Solidarity Spirit Week! 🍭✨
     </p>
   </section>
-
+  
   <!-- Winners Section -->
   <section>
     <h2>Winners Announcement</h2>
     <p>
-      Winners from the day will be announced at the end of the day and celebrated on our main event page! Stay tuned 🎉
+      Winners from the day will be announced at the end of the day and celebrated on our main event page!  
+      Keep those cameras ready and your eyes peeled — every square counts! 📸🎉
     </p>
   </section>
 
