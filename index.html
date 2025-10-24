@@ -85,6 +85,37 @@
     font-size: 0.9rem;
     color: #aaa;
   }
+
+  .carousel {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #ff7518, 0 0 60px rgba(255,117,24,0.5);
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slides a {
+  flex: 0 0 100%; /* Each link takes up 100% of carousel width */
+}
+
+.slides a img {
+  width: 100%;
+  height: auto; /* maintain aspect ratio */
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+
+  
 </style>
 </head>
 <body>
