@@ -41,15 +41,35 @@
     text-shadow: 2px 2px 5px black;
   }
 
-  img {
-    max-width: 80%;
-    border-radius: 20px;
-    box-shadow: 0 0 20px #ff7518;
+  section {
+    max-width: 800px;
     margin: 30px auto;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(255,117,24,0.3);
+  }
+
+  section h2 {
+    color: #ff9c1a;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px black;
+  }
+
+  .poster img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #ff7518;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
   }
 
   footer {
-    margin-top: 20px;
+    margin-top: 30px;
     color: #aaa;
     font-size: 0.9rem;
   }
@@ -66,9 +86,37 @@
   </nav>
 
   <h1>Solidarity Scrabble - Monday</h1>
-  <img src="images/SolSpirit12_Day1.png" alt="Monday Poster">
-  <p>Join us for a spooky round of Solidarity Scrabble on your picket line!  
-  Hosted by the BVTU — prizes from No Frills 🧡</p>
+
+  <!-- Event Poster Section -->
+  <section class="poster">
+    <h2>Event Poster</h2>
+    <img src="images/SolSpirit12_Day1.png" alt="Monday Poster">
+  </section>
+
+  <!-- Game Rules / Details Section -->
+  <section>
+    <h2>Game Rules & Details</h2>
+    <p>
+      Join us for a spooky round of Solidarity Scrabble on your picket line!  
+      Each shift will have one round of play. Compete with your colleagues and test your word skills.
+    </p>
+  </section>
+
+  <!-- Sponsor Section -->
+  <section>
+    <h2>Sponsored By</h2>
+    <p>
+      A huge thank you to <strong>BVTU</strong> for supporting our Solidarity Spirit Week and providing prizes!
+    </p>
+  </section>
+
+  <!-- Winners Section -->
+  <section>
+    <h2>Winners Announcement</h2>
+    <p>
+      Winners from the day will be announced at the end of the day and celebrated on our main event page! Stay tuned 🎉
+    </p>
+  </section>
 
   <footer>Fair Wages Aren’t Scary 👻</footer>
 </body>
