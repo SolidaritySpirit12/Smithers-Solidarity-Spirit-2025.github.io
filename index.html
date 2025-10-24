@@ -186,16 +186,16 @@
 
 <script>
 
-  const header = document.getElementById('mainHeader');
-  const headerEmojis = ['🎃','👻','🕸️','🧙','🧛','🕷️'];
+  // const header = document.getElementById('mainHeader');
+  // const headerEmojis = ['🎃','👻','🕸️','🧙','🧛','🕷️'];
 
-  // Randomly add/move emojis around header every 1s
-  setInterval(() => {
-    const randomEmoji = headerEmojis[Math.floor(Math.random()*headerEmojis.length)];
-    const position = Math.floor(Math.random() * header.textContent.length);
-    const text = header.textContent.replace(/[\u{1F300}-\u{1F6FF}]/gu,''); // remove old emojis
-    header.textContent = text.slice(0, position) + randomEmoji + text.slice(position);
-  }, 1000);
+  // // Randomly add/move emojis around header every 1s
+  // setInterval(() => {
+  //   const randomEmoji = headerEmojis[Math.floor(Math.random()*headerEmojis.length)];
+  //   const position = Math.floor(Math.random() * header.textContent.length);
+  //   const text = header.textContent.replace(/[\u{1F300}-\u{1F6FF}]/gu,''); // remove old emojis
+  //   header.textContent = text.slice(0, position) + randomEmoji + text.slice(position);
+  // }, 1000);
 
   // Slight wiggle effect
   setInterval(() => {
