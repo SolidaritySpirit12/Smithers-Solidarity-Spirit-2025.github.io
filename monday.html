@@ -57,10 +57,13 @@
   }
 
   .poster img {
-    width: 100%;
-    height: auto;
+    width: 90%;       /* scales with screen */
+    max-width: 400px; /* prevents it from getting huge */
+    height: auto;     /* maintain aspect ratio */
     border-radius: 15px;
     box-shadow: 0 0 15px #ff7518;
+    display: block;
+    margin: 0 auto;   /* centers image */
   }
 
   p {
