@@ -123,6 +123,41 @@
     </p>
   </section>
 
-  <footer>Fair Wages Aren’t Scary 👻</footer>
+    <footer style="position: relative; margin-top: 40px; font-size: 0.9rem; line-height: 1.5; color: #ffb347; text-shadow: 2px 2px 5px black, 0 0 10px #ff7518;">
+      <div style="font-weight:bold; font-size:1.1rem; animation: flicker 2s infinite;">
+        Fair Wages Aren’t Scary 👻
+      </div>
+      <div>
+        Brought to you by anonymous striking BCGEU volunteers during the 2025 strike — 
+        <a href="https://www.bcgeu.ca" target="_blank" style="color:#aaa; text-decoration:none;">Learn more</a>
+      </div>
+    
+      <!-- floating Halloween emojis -->
+      <div id="footerEmoji" style="position:absolute; top:-10px; left:50%; font-size:1.5rem; pointer-events:none;"></div>
+    </footer>
+    
+    <script>
+      const footerEmojis = ['🎃','👻','🕷️','🕸️','🧙','🧛'];
+      setInterval(() => {
+        const emojiDiv = document.getElementById('footerEmoji');
+        const randomEmoji = footerEmojis[Math.floor(Math.random()*footerEmojis.length)];
+        const x = Math.random() * 80 + 10; // horizontal in %
+        const y = Math.random() * 20 + 10; // vertical in %
+        emojiDiv.style.left = x + '%';
+        emojiDiv.style.top = y + '%';
+        emojiDiv.textContent = randomEmoji;
+      }, 1200);
+    
+      // flicker animation for footer heading
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes flicker {
+          0%,19%,21%,23%,25%,54%,56%,100% {opacity:1;}
+          20%,24%,55% {opacity:0.3;}
+        }
+      `;
+      document.head.appendChild(style);
+    </script>
+    
 </body>
 </html>
