@@ -119,6 +119,22 @@
     text-shadow: 2px 2px 5px black, 0 0 10px #ff7518;
     position: relative;
   }
+  ul {
+    list-style: none;        /* Removes default bullets */
+    padding-left: 0;         /* Aligns with text */
+    margin-left: 0;
+  }
+  
+  ul li {
+    margin: 0.4em 0;         /* Adds clean spacing between points */
+    padding-left: 0.2em;     /* A little breathing room */
+    font-size: 1.05em;       /* Slightly larger text for readability */
+    line-height: 1.4em;
+  }
+  ul li::first-letter {
+    text-shadow: 0 0 5px #ffb347;
+  }
+
 </style>
 </head>
 <body>
