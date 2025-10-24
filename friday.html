@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign Show and Chili Cook off - Friday</title>
+<title>Sign Show & Chili Cook-Off – Friday Finale!</title>
 <style>
   body {
-    background: linear-gradient(to bottom, #1a001a, #000);
+    background: radial-gradient(circle at top, #2b002b 0%, #000 100%);
     color: #ffb347;
     font-family: "Trebuchet MS", sans-serif;
     margin: 0;
@@ -14,33 +14,64 @@
     padding-bottom: 60px;
   }
 
+  /* 🔥 Glowing Flickering Header */
+  h1 {
+    color: #ff7518;
+    text-shadow: 3px 3px 8px black, 0 0 25px #ff7518;
+    animation: flicker 2s infinite;
+    margin-top: 40px;
+  }
+
+  @keyframes flicker {
+    0%,19%,21%,23%,25%,54%,56%,100% {opacity: 1;}
+    20%,24%,55% {opacity: 0.3;}
+  }
+
+  /* 🧭 Navigation Bar */
   nav {
     background: rgba(0,0,0,0.6);
-    padding: 10px 0;
+    padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    box-shadow: 0 0 20px rgba(255,117,24,0.4);
   }
 
   nav a {
-    color: #ff7518;
+    color: #ffb347;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
   }
 
   nav a:hover {
     color: #fff;
+    text-shadow: 0 0 10px #ff7518, 0 0 20px #ffb347;
   }
 
-  h1 {
-    margin-top: 30px;
-    text-shadow: 2px 2px 5px black;
+  /* 🎃 Wiggle Pumpkin Animation */
+  .pumpkin {
+    font-size: 2rem;
+    animation: wiggle 1s infinite alternate, glow 2s infinite;
+    display: inline-block;
+    margin-top: 10px;
   }
 
+  @keyframes wiggle {
+    0% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+  }
+
+  @keyframes glow {
+    0%,100% { text-shadow: 0 0 5px #ff7518; }
+    50% { text-shadow: 0 0 20px #ffb347; }
+  }
+
+  /* 🔸 Section Styling */
   section {
     max-width: 800px;
     margin: 30px auto;
@@ -57,13 +88,10 @@
   }
 
   .poster img {
-    width: 90%;       /* scales with screen */
-    max-width: 400px; /* prevents it from getting huge */
-    height: auto;     /* maintain aspect ratio */
+    width: 90%;
+    max-width: 400px;
     border-radius: 15px;
     box-shadow: 0 0 15px #ff7518;
-    display: block;
-    margin: 0 auto;   /* centers image */
   }
 
   p {
@@ -71,14 +99,22 @@
     line-height: 1.5rem;
   }
 
+  /* 👻 Footer */
   footer {
-    margin-top: 30px;
-    color: #aaa;
+    margin-top: 40px;
     font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ffb347;
+    text-shadow: 2px 2px 5px black, 0 0 10px #ff7518;
+    position: relative;
   }
 </style>
 </head>
 <body>
+
+  <div class="pumpkin">🎃</div>
+  <h1>Sign Show & Chili Cook-Off – Friday Finale! 🔥</h1>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -90,32 +126,30 @@
     <a href="menu.html">Menu</a>
   </nav>
 
-  <h1>🔥 Sign Show & Chili Cook-Off – Friday Finale! 🔥</h1>
-  
   <!-- Event Poster Section -->
   <section class="poster">
     <h2>🎨 Event Poster</h2>
     <img src="images/SolSpirit12_Day5.png" alt="Friday Poster">
   </section>
-  
+
   <!-- Game Rules / Details Section -->
   <section>
     <h2>🌶️ Cook-Off Details</h2>
     <p>
-      We’re turning up the heat for the grand finale of <strong>Smithers Solidarity Spirit Week!</strong>  
+      We’re turning up the heat for the grand finale of <strong>Smithers Solidarity Spirit Week!</strong><br><br>
       Bring your best chili creation and compete for ultimate bragging rights and delicious prizes!  
-      Judging will take place <strong>between 11:00 AM and 1:00 PM at the Nora Building</strong> — so be sure to arrive early to set up your masterpiece.
+      Judging will take place <strong>between 11:00 AM and 1:00 PM at the Nora Building</strong> — so arrive early to set up your masterpiece.
     </p>
     <p>
       Not a chef? No problem! Join the crowd as an official taste tester and help crown our 2025 Chili Champion.  
       Stick around for the <strong>Sign Show</strong> and a celebration of the creativity, spirit, and solidarity that’s kept our week fiery and fun!
     </p>
     <p>
-      🏆 <em>Weekly prizes will also be handed out during this time*</em>  
+      🏆 <em>Weekly prizes will also be handed out during this time*</em><br>
       <small>*The BVTU Scrabble Event may follow a separate prize schedule.</small>
     </p>
   </section>
-  
+
   <!-- Sponsor Section -->
   <section>
     <h2>🤝 Sponsored By</h2>
@@ -124,13 +158,13 @@
       for keeping our spirits high (and our bowls full!) with their generous support.
     </p>
   </section>
-  
+
   <!-- Winners Section -->
   <section>
     <h2>🎉 Celebration & Wrap-Up</h2>
     <p>
       Join us as we celebrate the creativity, courage, and community of everyone who made  
-      <strong>Smithers Solidarity Spirit Week</strong> a hit. We’ll announce the week’s winners, share a few highlights,  
+      <strong>Smithers Solidarity Spirit Week</strong> a hit. We’ll announce the week’s winners, share highlights,  
       and end on a high note — together in solidarity.
     </p>
     <p>
@@ -138,41 +172,32 @@
     </p>
   </section>
 
+  <footer>
+    <div style="font-weight:bold; font-size:1.1rem; animation: flicker 2s infinite;">
+      Fair Wages Aren’t Scary 👻
+    </div>
+    <div>
+      Brought to you by anonymous striking BCGEU volunteers during the 2025 strike — 
+      <a href="https://www.bcgeu.ca" target="_blank" style="color:#aaa; text-decoration:none;">Learn more</a>
+    </div>
 
-    <footer style="position: relative; margin-top: 40px; font-size: 0.9rem; line-height: 1.5; color: #ffb347; text-shadow: 2px 2px 5px black, 0 0 10px #ff7518;">
-      <div style="font-weight:bold; font-size:1.1rem; animation: flicker 2s infinite;">
-        Fair Wages Aren’t Scary 👻
-      </div>
-      <div>
-        Brought to you by anonymous striking BCGEU volunteers during the 2025 strike — 
-        <a href="https://www.bcgeu.ca" target="_blank" style="color:#aaa; text-decoration:none;">Learn more</a>
-      </div>
-    
-      <!-- floating Halloween emojis -->
-      <div id="footerEmoji" style="position:absolute; top:-10px; left:50%; font-size:1.5rem; pointer-events:none;"></div>
-    </footer>
-    
-    <script>
-      const footerEmojis = ['🎃','👻','🕷️','🕸️','🧙','🧛'];
-      setInterval(() => {
-        const emojiDiv = document.getElementById('footerEmoji');
-        const randomEmoji = footerEmojis[Math.floor(Math.random()*footerEmojis.length)];
-        const x = Math.random() * 80 + 10; // horizontal in %
-        const y = Math.random() * 20 + 10; // vertical in %
-        emojiDiv.style.left = x + '%';
-        emojiDiv.style.top = y + '%';
-        emojiDiv.textContent = randomEmoji;
-      }, 1200);
-    
-      // flicker animation for footer heading
-      const style = document.createElement('style');
-      style.innerHTML = `
-        @keyframes flicker {
-          0%,19%,21%,23%,25%,54%,56%,100% {opacity:1;}
-          20%,24%,55% {opacity:0.3;}
-        }
-      `;
-      document.head.appendChild(style);
-    </script>
+    <!-- floating Halloween emojis -->
+    <div id="footerEmoji" style="position:absolute; top:-10px; left:50%; font-size:1.5rem; pointer-events:none;"></div>
+  </footer>
+
+  <script>
+    // Floating Halloween emojis
+    const footerEmojis = ['🎃','👻','🕷️','🕸️','🧙','🧛'];
+    setInterval(() => {
+      const emojiDiv = document.getElementById('footerEmoji');
+      const randomEmoji = footerEmojis[Math.floor(Math.random()*footerEmojis.length)];
+      const x = Math.random() * 80 + 10;
+      const y = Math.random() * 20 + 10;
+      emojiDiv.style.left = x + '%';
+      emojiDiv.style.top = y + '%';
+      emojiDiv.textContent = randomEmoji;
+    }, 1200);
+  </script>
+
 </body>
 </html>
