@@ -6,7 +6,7 @@
 <title>Sign Show & Chili Cook-Off – Friday Finale!</title>
 <style>
   body {
-    background: radial-gradient(circle at top, #2b002b 0%, #000 100%);
+    background: linear-gradient(to bottom, #1a001a, #000);
     color: #ffb347;
     font-family: "Trebuchet MS", sans-serif;
     margin: 0;
@@ -29,28 +29,39 @@
 
   /* 🧭 Navigation Bar */
   nav {
-    background: rgba(0,0,0,0.6);
-    padding: 12px 0;
+    background: rgba(0, 0, 0, 0.75);
     position: sticky;
     top: 0;
     z-index: 1000;
+    overflow-x: auto; /* allows horizontal scroll on tiny screens */
+    white-space: nowrap; /* keeps links inline */
+    -webkit-overflow-scrolling: touch;
     display: flex;
     justify-content: center;
-    gap: 15px;
-    box-shadow: 0 0 20px rgba(255,117,24,0.4);
+    align-items: center;
+    padding: 12px;
+    box-shadow: 0 0 12px rgba(255, 117, 24, 0.3);
+  }
+  nav::-webkit-scrollbar {
+    display: none; /* hides scrollbar for mobile look */
   }
 
   nav a {
-    color: #ffb347;
+    color: #ff7518;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin: 0 4px;
     transition: all 0.3s ease;
+    text-shadow: 0 0 6px #000;
   }
 
   nav a:hover {
     color: #fff;
-    text-shadow: 0 0 10px #ff7518, 0 0 20px #ffb347;
+    background: rgba(255, 117, 24, 0.2);
+    box-shadow: 0 0 8px #ff7518;
   }
 
   /* 🎃 Wiggle Pumpkin Animation */
