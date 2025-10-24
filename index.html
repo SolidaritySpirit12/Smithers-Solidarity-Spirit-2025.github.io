@@ -1,10 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Smithers Solidarity Spirit 2025/title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smithers Solidarity Spirit 2025</title>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #2b002b 0%, #000 100%);
+      color: #ffb347;
+      font-family: "Trebuchet MS", sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff7518;
+      text-shadow: 3px 3px 8px black, 0 0 25px #ff7518;
+      animation: flicker 2s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.3;
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #fefefe;
+      margin-top: 10px;
+      text-shadow: 2px 2px 5px black;
+    }
+
+    .pumpkin {
+      font-size: 5rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, Smithers!</h1>
-  <p>Keep on keeping on. Rock your Solidarity Spirit</p>
+  <div class="pumpkin">🎃</div>
+  <h1>Smithers Solidarity Spirit Week!</h1>
+  <p>Keep on keeping on. Rock your Solidarity Spirit 💪🧡</p>
+  <footer>Fair Wages Aren’t Scary 👻 | Oct 27–31, 2025</footer>
 </body>
 </html>
