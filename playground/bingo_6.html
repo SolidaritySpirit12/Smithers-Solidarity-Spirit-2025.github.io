@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trees of BC Line BINGO</title>
+<style>
+  body {
+    background: linear-gradient(to bottom, #1a001a, #000);
+    color: #ffb347;
+    font-family: "Trebuchet MS", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  header {
+    background-color: rgba(255, 179, 71, 0.1);
+    border-bottom: 2px solid #ffb347;
+    padding: 10px 0;
+    box-shadow: 0 0 15px #ffb34733;
+  }
+
+  h1 {
+    font-size: 2.2em;
+    color: #ffb347;
+    text-shadow: 0 0 10px #ffb347, 0 0 20px #ff7700;
+    margin: 15px 0 5px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    color: #ffd580;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+
+  table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: rgba(60, 0, 80, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 0 25px #ff770066;
+  }
+
+  th, td {
+    border: 2px solid #ffb347;
+    padding: 10px;
+    width: 130px;
+    height: 100px;
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    vertical-align: middle;
+  }
+
+  th {
+    background: rgba(255, 179, 71, 0.25);
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  td:hover {
+    background: rgba(255, 179, 71, 0.25);
+  }
+
+  td.clicked {
+    background: #ffb347;
+    color: #000;
+    transform: scale(0.97);
+  }
+
+  .free {
+    background: #ff7700;
+    color: #fff;
+    font-weight: bold;
+    cursor: default;
+  }
+
+  .free span {
+    font-size: 2em;
+    display: block;
+  }
+
+  form {
+    background: rgba(40, 0, 60, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 40px auto 0;
+    box-shadow: 0 0 25px #ff770066;
+  }
+
+  label {
+    display: block;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #ffcc88;
+  }
+
+  input {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1em;
+  }
+
+  input:focus {
+    outline: 2px solid #ffb347;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  button {
+    margin-top: 20px;
+    background: #ffb347;
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  button:hover {
+    background: #ff7700;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #ff7700;
+  }
+
+  .thanks {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #ffcc99;
+    text-shadow: 0 0 8px #ff770066;
+    display: none;
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #ffcc99;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 700px) {
+    table {
+      width: 95%;
+    }
+    th, td {
+      height: 70px;
+      font-size: 0.8em;
+      padding: 6px;
+    }
+    input {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌲 Halloween on the Line BINGO 🌲</h1>
+  <h2>Spot the Halloween Items along your picket line!</h2>
+</header>
+
+<table id="bingoCard">
+  <tr><th>B</th><th>I</th><th>N</th><th>G</th><th>O</th></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr>
+    <td></td><td></td>
+    <td class="free"><span>🎃</span><br>FREE SPACE</td>
+    <td></td><td></td>
+  </tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><td></td><td></td><td></td><td></td><td></td></tr>
+</table>
+
+<form id="bingoForm">
+  <h2>Submit Your Card</h2>
+  <label for="username">Your Name</label>
+  <input type="text" id="username" name="username" placeholder="Enter your name">
+
+  <label for="memberid">Member ID</label>
+  <input type="text" id="memberid" name="memberid" placeholder="Enter your member ID">
+
+  <label for="union">Union</label>
+  <input type="text" id="union" name="union" placeholder="Enter your union (e.g., BCGEU)">
+
+  <button type="submit">Submit Bingo</button>
+  <div class="thanks">🎉 Thanks for submitting your card! Good luck! 🎉</div>
+</form>
+
+<footer>
+  <p>Spot the trees and show your Solidarity Spirit! ✊🌲</p>
+</footer>
+
+<script>
+const halloweenItems = [
+  "Jack-o'-lantern",
+  "Witch hat",
+  "Skeleton",
+  "Black cat",
+  "Spider web",
+  "Bat decoration",
+  "Ghost",
+  "Zombie costume",
+  "Vampire fangs",
+  "Gravestone or tombstone",
+  "Pumpkin lights",
+  "Cauldron",
+  "Scarecrow",
+  "Haunted house display",
+  "Mummy wrapping",
+  "Candy corn",
+  "Werewolf",
+  "Fog machine",
+  "Full moon",
+  "Trick-or-treat bag",
+  "Spider ring",
+  "Fake blood",
+  "Broomstick",
+  "Eyeball candy",
+  "Pumpkin spice something",
+  "Creepy clown",
+  "Monster mask",
+  "Skeleton hands",
+  "Coffin prop",
+  "Fake crow or raven",
+  "Witch broom",
+  "Cobweb-covered bush",
+  "Ghost sheet hanging",
+  "Fake tombstone",
+  "Animated decoration (motion sensor)",
+  "Dirty handprint",
+  "Pumpkin costume",
+  "Glow-in-the-dark decoration",
+  "Spooky music or sound effects",
+  "Skeleton dog or cat",
+  "Candy bucket shaped like a pumpkin"
+];
+
+
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function populateBingo() {
+    const shuffled = shuffle([...items]);
+    const table = document.getElementById("bingoCard");
+    let index = 0;
+    for (let r = 1; r < table.rows.length; r++) {
+      for (let c = 0; c < table.rows[r].cells.length; c++) {
+        const cell = table.rows[r].cells[c];
+        if (!cell.classList.contains("free")) {
+          cell.textContent = shuffled[index];
+          index++;
+        }
+      }
+    }
+  }
+
+  populateBingo();
+
+  document.querySelectorAll("td:not(.free)").forEach(cell => {
+    cell.addEventListener("click", () => cell.classList.toggle("clicked"));
+  });
+
+  const form = document.getElementById("bingoForm");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const username = document.getElementById("username").value.trim();
+    const memberid = document.getElementById("memberid").value.trim();
+    const union = document.getElementById("union").value.trim();
+    if (!username || !memberid || !union) {
+      alert("Please fill in all fields before submitting!");
+      return;
+    }
+    console.log("Submitted:", { username, memberid, union });
+    form.querySelector(".thanks").style.display = "block";
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
