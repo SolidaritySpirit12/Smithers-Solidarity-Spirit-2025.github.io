@@ -261,7 +261,8 @@
     }
   }
 
-  populateBingo(); // run on page load
+  // Run on page load
+  populateBingo();
 
   // Toggle cell selection
   document.querySelectorAll("td:not(.free)").forEach(cell => {
@@ -275,10 +276,10 @@
     form.querySelector(".thanks").style.display = "block";
     // Reset form fields after submission
     form.reset();
-    // No preventDefault – allows submission to Google Forms via hidden iframe
+    // Form still submits to Google Forms via hidden iframe
   });
 </script>
-</script>
+
 
 
 </body>
