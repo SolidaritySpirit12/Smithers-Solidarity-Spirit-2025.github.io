@@ -192,21 +192,29 @@
   </tr>
 </table>
 
-<form id="bingoForm">
+<form id="bingoForm" 
+      action="https://docs.google.com/forms/d/e/1FAIpQLSfW5l0nhUWy7QeVYnEff1S44Bxv665xUgZBWTDNmGvnU9Jthw/formResponse" 
+      method="POST" 
+      target="_blank">
+
   <h2>Submit Your Card</h2>
+
   <label for="username">Your Name</label>
-  <input type="text" id="username" name="username" placeholder="Enter your name">
+  <input type="text" id="username" name="entry.72246171" placeholder="Enter your name" required>
 
   <label for="memberid">Member ID</label>
-  <input type="text" id="memberid" name="memberid" placeholder="Enter your member ID">
+  <input type="text" id="memberid" name="entry.1779144636" placeholder="Enter your member ID" required>
 
   <label for="union">Union</label>
-  <input type="text" id="union" name="union" placeholder="Enter your union (e.g., BCGEU)">
+  <input type="text" id="union" name="entry.1801923635" placeholder="Enter your union" required>
+
+  <label for="email">Email Address</label>
+  <input type="email" id="email" name="emailAddress" placeholder="Enter your email" required>
 
   <button type="submit">Submit Bingo</button>
-
   <div class="thanks">🎉 Thanks for submitting your card! Good luck! 🎉</div>
 </form>
+
 
 <footer>
   <p>Have fun, stay spooky, and show your Solidarity Spirit! ✊🎃</p>
