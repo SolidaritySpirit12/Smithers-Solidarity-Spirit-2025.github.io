@@ -165,7 +165,6 @@
 </footer>
 
 <script>
-  // Bingo items (excluding FREE SPACE)
   const items = [
     "Sticker on pole","Tiny toy","Forgotten notebook","Piece of recycling","Feather",
     "Loose glove","Bottle cap","Hat on ground","Paper scrap","Broken pencil",
@@ -174,7 +173,6 @@
     "Button","Sunglasses","Small flower","Safety pin"
   ];
 
-  // Shuffle function
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -183,41 +181,64 @@
     return array;
   }
 
-  // Fill the bingo table with random items
   function populateBingo() {
     const shuffled = shuffle([...items]);
     const table = document.getElementById("bingoCard");
     let index = 0;
-
     for (let r = 1; r < table.rows.length; r++) {
       for (let c = 0; c < table.rows[r].cells.length; c++) {
         const cell = table.rows[r].cells[c];
         if (!cell.classList.contains("free")) {
-          cell.textContent = shuffled[index];
-          index++;
+          cell.textContent = shuffled[index++];
         }
       }
     }
   }
 
-  // Run on page load
   populateBingo();
 
-  // Toggle cell selection
-  document.querySelectorAll("td:not(.free)").forEach(cell => {
+  // Toggle cells
+  const cells = document.querySelectorAll("td:not(.free)");
+  cells.forEach(cell => {
     cell.addEventListener("click", () => cell.classList.toggle("clicked"));
   });
 
-  // Submit button opens Google Form
+  // Check for completed lines
+  function hasBingo() {
+    const table = document.getElementById("bingoCard");
+    const size = 5;
+    const board = [];
+    for (let r = 0; r < size; r++) {
+      const row = [];
+      for (let c = 0; c < size; c++) {
+        const cell = table.rows[r + 1].cells[c];
+        row.push(cell.classList.contains("clicked") || cell.classList.contains("free"));
+      }
+      board.push(row);
+    }
+
+    // Check rows
+    for (let r = 0; r < size; r++) if (board[r].every(Boolean)) return true;
+    // Check columns
+    for (let c = 0; c < size; c++) if (board.map(row => row[c]).every(Boolean)) return true;
+    // Check diagonals
+    if (board.map((row, i) => row[i]).every(Boolean)) return true;
+    if (board.map((row, i) => row[size - 1 - i]).every(Boolean)) return true;
+
+    return false;
+  }
+
   const submitBtn = document.getElementById("submitBingo");
   const thanks = document.querySelector(".thanks");
 
   submitBtn.addEventListener("click", () => {
-    const url = "https://docs.google.com/forms/d/e/1FAIpQLSfW5l0nhUWy7QeVYnEff1S44Bxv665xUgZBWTDNmGvnU9Jthw/viewform";
-    window.open(url, "_blank");
-
-    // Show thanks message
-    thanks.style.display = "block";
+    if (hasBingo()) {
+      const url = "https://docs.google.com/forms/d/e/1FAIpQLSfW5l0nhUWy7QeVYnEff1S44Bxv665xUgZBWTDNmGvnU9Jthw/viewform";
+      window.open(url, "_blank");
+      thanks.style.display = "block";
+    } else {
+      alert("Oops! You need at least one completed line to submit your card. Keep looking!");
+    }
   });
 </script>
 
