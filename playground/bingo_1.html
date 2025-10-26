@@ -83,38 +83,6 @@
     display: block;
   }
 
-  form {
-    background: rgba(40, 0, 60, 0.6);
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 400px;
-    margin: 40px auto 0;
-    box-shadow: 0 0 25px #ff770066;
-  }
-
-  label {
-    display: block;
-    margin-top: 10px;
-    font-size: 1em;
-    color: #ffcc88;
-  }
-
-  input {
-    width: 90%;
-    padding: 10px;
-    margin-top: 5px;
-    border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 1em;
-  }
-
-  input:focus {
-    outline: 2px solid #ffb347;
-    background: rgba(255, 255, 255, 0.2);
-  }
-
   button {
     margin-top: 20px;
     background: #ffb347;
@@ -158,9 +126,6 @@
       font-size: 0.8em;
       padding: 6px;
     }
-    input {
-      width: 100%;
-    }
   }
 </style>
 </head>
@@ -192,32 +157,8 @@
   </tr>
 </table>
 
-
-<form id="bingoForm" 
-      action="https://docs.google.com/forms/d/e/1FAIpQLSfW5l0nhUWy7QeVYnEff1S44Bxv665xUgZBWTDNmGvnU9Jthw/formResponse" 
-      method="POST" 
-      target="hidden_iframe">
-
-  <h2>Submit Your Card</h2>
-
-  <label for="username">Your Name</label>
-  <input type="text" id="username" name="entry.72246171" placeholder="Enter your name" required>
-
-  <label for="memberid">Member ID</label>
-  <input type="text" id="memberid" name="entry.1779144636" placeholder="Enter your member ID" required>
-
-  <label for="union">Union</label>
-  <input type="text" id="union" name="entry.1801923635" placeholder="Enter your union" required>
-
-  <label for="email">Email Address</label>
-  <input type="email" id="email" name="emailAddress" placeholder="Enter your email" required>
-
-  <button type="submit">Submit Bingo</button>
-  <div class="thanks">🎉 Thanks for submitting your card! Good luck! 🎉</div>
-</form>
-
-
-
+<button id="submitBingo">Submit Bingo</button>
+<div class="thanks">🎉 Thanks for submitting your card! Good luck! 🎉</div>
 
 <footer>
   <p>Have fun, stay spooky, and show your Solidarity Spirit! ✊🎃</p>
@@ -267,27 +208,18 @@
     cell.addEventListener("click", () => cell.classList.toggle("clicked"));
   });
 
-  // Handle form submission
-  const form = document.getElementById("bingoForm");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // prevent default submission for a moment
+  // Submit button opens Google Form
+  const submitBtn = document.getElementById("submitBingo");
+  const thanks = document.querySelector(".thanks");
+
+  submitBtn.addEventListener("click", () => {
+    const url = "https://docs.google.com/forms/d/e/1FAIpQLSfW5l0nhUWy7QeVYnEff1S44Bxv665xUgZBWTDNmGvnU9Jthw/viewform";
+    window.open(url, "_blank");
 
     // Show thanks message
-    form.querySelector(".thanks").style.display = "block";
-
-    // Open Google Form submission in a new window
-    const url = form.action;
-    const formData = new FormData(form);
-    const params = new URLSearchParams(formData).toString();
-    window.open(`${url}?${params}`, "_blank");
-
-    // Reset form fields
-    form.reset();
+    thanks.style.display = "block";
   });
 </script>
-
-
-
 
 </body>
 </html>
