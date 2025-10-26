@@ -192,10 +192,13 @@
   </tr>
 </table>
 
+<!-- hidden iframe -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
 <form id="bingoForm" 
       action="https://docs.google.com/forms/d/e/1FAIpQLSfW5l0nhUWy7QeVYnEff1S44Bxv665xUgZBWTDNmGvnU9Jthw/formResponse" 
       method="POST" 
-      target="_blank">
+      target="hidden_iframe">
 
   <h2>Submit Your Card</h2>
 
@@ -216,12 +219,14 @@
 </form>
 
 
+
+
 <footer>
   <p>Have fun, stay spooky, and show your Solidarity Spirit! ✊🎃</p>
 </footer>
 
 <script>
-  // Your bingo items (excluding FREE SPACE)
+  // Bingo items (excluding FREE SPACE)
   const items = [
     "Sticker on pole","Tiny toy","Forgotten notebook","Piece of recycling","Feather",
     "Loose glove","Bottle cap","Hat on ground","Paper scrap","Broken pencil",
@@ -265,22 +270,14 @@
 
   // Handle form submission
   const form = document.getElementById("bingoForm");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const username = document.getElementById("username").value.trim();
-    const memberid = document.getElementById("memberid").value.trim();
-    const union = document.getElementById("union").value.trim();
-
-    if (!username || !memberid || !union) {
-      alert("Please fill in all fields before submitting!");
-      return;
-    }
-
-    console.log("Submitted:", { username, memberid, union });
+  form.addEventListener("submit", () => {
+    // Show thanks message
     form.querySelector(".thanks").style.display = "block";
+    // Reset form fields after submission
     form.reset();
+    // No preventDefault – allows submission to Google Forms via hidden iframe
   });
+</script>
 </script>
 
 
