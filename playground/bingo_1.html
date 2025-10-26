@@ -192,8 +192,6 @@
   </tr>
 </table>
 
-<!-- hidden iframe -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
 <form id="bingoForm" 
       action="https://docs.google.com/forms/d/e/1FAIpQLSfW5l0nhUWy7QeVYnEff1S44Bxv665xUgZBWTDNmGvnU9Jthw/formResponse" 
@@ -271,14 +269,23 @@
 
   // Handle form submission
   const form = document.getElementById("bingoForm");
-  form.addEventListener("submit", () => {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // prevent default submission for a moment
+
     // Show thanks message
     form.querySelector(".thanks").style.display = "block";
-    // Reset form fields after submission
+
+    // Open Google Form submission in a new window
+    const url = form.action;
+    const formData = new FormData(form);
+    const params = new URLSearchParams(formData).toString();
+    window.open(`${url}?${params}`, "_blank");
+
+    // Reset form fields
     form.reset();
-    // Form still submits to Google Forms via hidden iframe
   });
 </script>
+
 
 
 
