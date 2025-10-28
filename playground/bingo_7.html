@@ -15,12 +15,12 @@
   }
 
   header {
-    background-color: #0033AA; /* Rich, dark blue */
+    background-color: #0033AA;
     border-bottom: 2px solid #FFD700;
-    padding: 15px 0;
+    padding: 15px 10px;
     box-shadow: 0 0 15px #FFD70033;
+    word-wrap: break-word;
   }
-
 
   h1 {
     font-size: 2.2em;
@@ -36,23 +36,31 @@
     margin-top: 5px;
   }
 
+  .table-container {
+    overflow-x: auto;
+  }
+
   table {
     margin: 30px auto;
     border-collapse: collapse;
     background: #0033AA;
     border-radius: 12px;
     box-shadow: 0 0 25px #FFD70066;
+    max-width: 100%;
+    width: 600px;
+    table-layout: fixed;
   }
 
   th, td {
     border: 2px solid #FFD700;
     padding: 10px;
-    width: 130px;
+    width: 120px;
     height: 100px;
     color: #FFD700;
     text-shadow: 1px 1px 2px #001144;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    word-wrap: break-word;
   }
 
   th {
@@ -120,14 +128,16 @@
   }
 
   @media (max-width: 700px) {
-    table {
-      width: 95%;
-    }
-    th, td {
-      height: 70px;
-      font-size: 0.8em;
-      padding: 6px;
-    }
+    body { padding: 10px; }
+    h1 { font-size: 1.8em; line-height: 1.2em; }
+    h2 { font-size: 1em; }
+    th, td { height: auto; font-size: 0.75em; padding: 5px; }
+    td span { font-size: 1.5em; }
+    button { font-size: 1em; padding: 10px 16px; }
+  }
+
+  @media (max-width: 400px) {
+    .table-container { overflow-x: auto; }
   }
 </style>
 </head>
@@ -138,26 +148,28 @@
   <h2>Mark the fun things you see around the office!</h2>
 </header>
 
-<table id="bingoCard">
-  <tr><th>B</th><th>I</th><th>N</th><th>G</th><th>O</th></tr>
-  <tr>
-    <td>Desk plant</td><td>Funny mug</td><td>Sticky note</td><td>Blue pen</td><td>Keyboard sticker</td>
-  </tr>
-  <tr>
-    <td>Post-it pile</td><td>Water bottle</td><td>Laptop sticker</td><td>Paperclip chain</td><td>Notebook doodle</td>
-  </tr>
-  <tr>
-    <td>Yellow highlighter</td><td>Stapler</td>
-    <td class="free"><span>⭐</span><br>FREE SPACE</td>
-    <td>Coffee cup</td><td>Something shiny</td>
-  </tr>
-  <tr>
-    <td>Chair wheel squeak</td><td>Sticky note joke</td><td>Pen cap</td><td>Office snack</td><td>Small toy</td>
-  </tr>
-  <tr>
-    <td>Mouse pad</td><td>Button badge</td><td>Sunglasses on desk</td><td>Paper scrap</td><td>Funny sign</td>
-  </tr>
-</table>
+<div class="table-container">
+  <table id="bingoCard">
+    <tr><th>B</th><th>I</th><th>N</th><th>G</th><th>O</th></tr>
+    <tr>
+      <td>Desk plant</td><td>Funny mug</td><td>Sticky note</td><td>Blue pen</td><td>Keyboard sticker</td>
+    </tr>
+    <tr>
+      <td>Post-it pile</td><td>Water bottle</td><td>Laptop sticker</td><td>Paperclip chain</td><td>Notebook doodle</td>
+    </tr>
+    <tr>
+      <td>Yellow highlighter</td><td>Stapler</td>
+      <td class="free"><span>⭐</span><br>FREE SPACE</td>
+      <td>Coffee cup</td><td>Something shiny</td>
+    </tr>
+    <tr>
+      <td>Chair wheel squeak</td><td>Sticky note joke</td><td>Pen cap</td><td>Office snack</td><td>Small toy</td>
+    </tr>
+    <tr>
+      <td>Mouse pad</td><td>Button badge</td><td>Sunglasses on desk</td><td>Paper scrap</td><td>Funny sign</td>
+    </tr>
+  </table>
+</div>
 
 <button id="submitBingo">Submit Bingo</button>
 <div class="thanks">🎉 Thanks for submitting your card! Good luck! 🎉</div>
