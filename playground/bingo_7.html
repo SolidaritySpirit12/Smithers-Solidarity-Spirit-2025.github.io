@@ -46,21 +46,25 @@
     background: #0033AA;
     border-radius: 12px;
     box-shadow: 0 0 25px #FFD70066;
-    max-width: 100%;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     table-layout: fixed;
   }
 
   th, td {
     border: 2px solid #FFD700;
-    padding: 10px;
-    width: 120px;
-    height: 100px;
+    padding: 0;
     color: #FFD700;
     text-shadow: 1px 1px 2px #001144;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    aspect-ratio: 1 / 1; /* Makes cell square */
     word-wrap: break-word;
+    font-size: 0.9em;
   }
 
   th {
@@ -86,6 +90,7 @@
     color: #0033AA;
     font-weight: bold;
     cursor: default;
+    flex-direction: column;
   }
 
   .free span {
@@ -131,13 +136,9 @@
     body { padding: 10px; }
     h1 { font-size: 1.8em; line-height: 1.2em; }
     h2 { font-size: 1em; }
-    th, td { height: auto; font-size: 0.75em; padding: 5px; }
-    td span { font-size: 1.5em; }
+    th, td { font-size: 0.75em; }
+    .free span { font-size: 1.5em; }
     button { font-size: 1em; padding: 10px 16px; }
-  }
-
-  @media (max-width: 400px) {
-    .table-container { overflow-x: auto; }
   }
 </style>
 </head>
