@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back to Work BINGO</title>
+<style>
+  body {
+    background: linear-gradient(to bottom, #e0e8ff, #cce0ff);
+    color: #0033AA;
+    font-family: "Trebuchet MS", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+  }
+
+  header {
+    background-color: #0033AA; /* Rich, dark blue */
+    border-bottom: 2px solid #FFD700;
+    padding: 15px 0;
+    box-shadow: 0 0 15px #FFD70033;
+  }
+
+
+  h1 {
+    font-size: 2.2em;
+    color: #FFD700;
+    text-shadow: 0 0 10px #FFD700, 0 0 20px #ffea00;
+    margin: 10px 0 5px;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    color: #FFD700;
+    font-weight: normal;
+    margin-top: 5px;
+  }
+
+  table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: #0033AA;
+    border-radius: 12px;
+    box-shadow: 0 0 25px #FFD70066;
+  }
+
+  th, td {
+    border: 2px solid #FFD700;
+    padding: 10px;
+    width: 130px;
+    height: 100px;
+    color: #FFD700;
+    text-shadow: 1px 1px 2px #001144;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  th {
+    background: rgba(255, 215, 0, 0.25);
+    font-size: 1.4em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  td:hover {
+    background: rgba(255, 215, 0, 0.3);
+    color: #0033AA;
+  }
+
+  td.clicked {
+    background: #FFD700;
+    color: #0033AA;
+    transform: scale(0.97);
+  }
+
+  .free {
+    background: #ffea00;
+    color: #0033AA;
+    font-weight: bold;
+    cursor: default;
+  }
+
+  .free span {
+    font-size: 2em;
+    display: block;
+  }
+
+  button {
+    margin-top: 20px;
+    background: #FFD700;
+    color: #0033AA;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  button:hover {
+    background: #ffea00;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #ffea00;
+  }
+
+  .thanks {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #0033AA;
+    text-shadow: 0 0 8px #FFD70066;
+    display: none;
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #0033AA;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 700px) {
+    table {
+      width: 95%;
+    }
+    th, td {
+      height: 70px;
+      font-size: 0.8em;
+      padding: 6px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏢 Back to Work BINGO 🏢</h1>
+  <h2>Mark the fun things you see around the office!</h2>
+</header>
+
+<table id="bingoCard">
+  <tr><th>B</th><th>I</th><th>N</th><th>G</th><th>O</th></tr>
+  <tr>
+    <td>Desk plant</td><td>Funny mug</td><td>Sticky note</td><td>Blue pen</td><td>Keyboard sticker</td>
+  </tr>
+  <tr>
+    <td>Post-it pile</td><td>Water bottle</td><td>Laptop sticker</td><td>Paperclip chain</td><td>Notebook doodle</td>
+  </tr>
+  <tr>
+    <td>Yellow highlighter</td><td>Stapler</td>
+    <td class="free"><span>⭐</span><br>FREE SPACE</td>
+    <td>Coffee cup</td><td>Something shiny</td>
+  </tr>
+  <tr>
+    <td>Chair wheel squeak</td><td>Sticky note joke</td><td>Pen cap</td><td>Office snack</td><td>Small toy</td>
+  </tr>
+  <tr>
+    <td>Mouse pad</td><td>Button badge</td><td>Sunglasses on desk</td><td>Paper scrap</td><td>Funny sign</td>
+  </tr>
+</table>
+
+<button id="submitBingo">Submit Bingo</button>
+<div class="thanks">🎉 Thanks for submitting your card! Good luck! 🎉</div>
+
+<footer>
+  <p>Have fun, stay cheerful, and celebrate being back! ✨🏢</p>
+</footer>
+
+<script>
+  const items = [
+    "Desk plant","Funny mug","Sticky note","Blue pen","Keyboard sticker",
+    "Post-it pile","Water bottle","Laptop sticker","Paperclip chain","Notebook doodle",
+    "Yellow highlighter","Stapler","Coffee cup","Something shiny","Chair wheel squeak",
+    "Sticky note joke","Pen cap","Office snack","Small toy","Mouse pad",
+    "Button badge","Sunglasses on desk","Paper scrap","Funny sign"
+  ];
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function populateBingo() {
+    const shuffled = shuffle([...items]);
+    const table = document.getElementById("bingoCard");
+    let index = 0;
+    for (let r = 1; r < table.rows.length; r++) {
+      for (let c = 0; c < table.rows[r].cells.length; c++) {
+        const cell = table.rows[r].cells[c];
+        if (!cell.classList.contains("free")) {
+          cell.textContent = shuffled[index++];
+        }
+      }
+    }
+  }
+
+  populateBingo();
+
+  const cells = document.querySelectorAll("td:not(.free)");
+  cells.forEach(cell => {
+    cell.addEventListener("click", () => cell.classList.toggle("clicked"));
+  });
+
+  function hasBingo() {
+    const table = document.getElementById("bingoCard");
+    const size = 5;
+    const board = [];
+    for (let r = 0; r < size; r++) {
+      const row = [];
+      for (let c = 0; c < size; c++) {
+        const cell = table.rows[r + 1].cells[c];
+        row.push(cell.classList.contains("clicked") || cell.classList.contains("free"));
+      }
+      board.push(row);
+    }
+    for (let r = 0; r < size; r++) if (board[r].every(Boolean)) return true;
+    for (let c = 0; c < size; c++) if (board.map(row => row[c]).every(Boolean)) return true;
+    if (board.map((row, i) => row[i]).every(Boolean)) return true;
+    if (board.map((row, i) => row[size - 1 - i]).every(Boolean)) return true;
+    return false;
+  }
+
+  const submitBtn = document.getElementById("submitBingo");
+  const thanks = document.querySelector(".thanks");
+
+  submitBtn.addEventListener("click", () => {
+    if (hasBingo()) {
+      const url = "https://docs.google.com/forms/d/e/1FAIpQLSfW5l0nhUWy7QeVYnEff1S44Bxv665xUgZBWTDNmGvnU9Jthw/viewform";
+      window.open(url, "_blank");
+      thanks.style.display = "block";
+    } else {
+      alert("Oops! You need at least one completed line to submit your card. Keep looking!");
+    }
+  });
+</script>
+
+</body>
+</html>
